@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "cwd": "${workspaceFolder}",
+      "executable": "./build/Debug/RA6M5_CMakeCXX_Test.elf",
+      "name": "Debug with PyOCD",
+      "request": "launch",
+      "type": "cortex-debug",
+      "runToEntryPoint": "main",
+      "showDevDebugOutput": "both",
+      "servertype": "external",
+      "gdbTarget": "localhost:3333",
+      "gdbPath": "${env:ARM_GCC_TOOLCHAIN_PATH}/arm-none-eabi-gdb.exe",
+      "liveWatch": {
+        "enabled": true,
+        "samplesPerSecond": 20
+      },
+      "postLaunchCommands": [
+        "monitor reset halt",
+        "load"
+      ],
+      "svdFile": "${workspaceFolder}/ra/fsp/inc/R7FA6M5BH.svd",
+      "serverArgs": ["-t", "R7FA6M5BH"],
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "tasks": [
+    {
+      "type": "cmake",
+      "command": "build",
+      "group": "none",
+      "label": "FSP Smart Configurator",
+      "detail": "Edit configuration in FSP Smart Configurator",
+      "targets": [
+        "open_rasc_RA6M5_CMakeCXX_Test"
+      ],
+      "presentation": {
+        "showReuseMessage": false,
+        "clear": false,
+        "panel": "shared",
+        "echo": false,
+        "focus": false,
+        "reveal": "silent"
+      }
+    },
+    {
+      "type": "shell",
+      "command": "cmake -P cmake/prebuild.cmake",
+      "group": "none",
+      "label": "Regenerate Project Content"
+    },
+    {
+      "type": "cmake",
+      "command": "configure",
+      "group": "none",
+      "label": "Configure Project"
+    },
+    {
+      "type": "cmake",
+      "command": "build",
+      "group": "build",
+      "label": "Build Project",
+      "dependsOn": [
+        "Configure Project"
+      ]
+    },
+    {
+      "label": "Start PyOCD GDB Server",
+      "type": "shell",
+      "command": "pyocd gdbserver --target R7FA6M5BH --port 3333",
+      "group": "none",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "isBackground": true,
+      "options": {
+        "env": {
+          "PYTHONUNBUFFERED": "1"
+        }
+      },
+      "dependsOn": ["Wait for PyOCD Server"]
+    },
+    {
+      "label": "Wait for PyOCD Server",
+      "type": "shell",
+      "command": "timeout /t 3",
+      "group": "none",
+      "presentation": {
+        "echo": false,
+        "reveal": "never",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "dependsOn": ["Start PyOCD GDB Server"]
+    }
+  ],
+  "version": "2.0.0"
+}

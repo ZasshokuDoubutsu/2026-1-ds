@@ -1,0 +1,17 @@
+{
+	"id":"114",
+	"params":{
+		"Temp":{
+			"value":24
+		},
+		"Hum":{
+			"value":12
+		},
+		"LED":{
+			"value":true
+		},
+		"Alarm":{
+			"value":false
+		}
+	}
+}

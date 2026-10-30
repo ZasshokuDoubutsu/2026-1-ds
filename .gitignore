@@ -1,0 +1,30 @@
+# 构建产物
+build/
+*.elf
+*.map
+*.srec
+*.sbd
+*.rpd
+*.o
+*.d
+compile_commands.json
+rasc_cmd_log.txt
+configuration.xml.stamp
+
+# IDE / 缓存 / RASC 本地状态（由 configuration.xml 重新生成）
+.cache/
+.settings/
+.secure_azone
+.secure_rzone
+.secure_xml
+Doc/GUI-sample/
+
+# 未收录的第三方与供应商代码（需要时自行获取，勿提交）
+ra/
+Lib/etl/
+plans/
+
+# 系统文件
+Thumbs.db
+desktop.ini
+.DS_Store

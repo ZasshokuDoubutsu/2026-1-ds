@@ -1,0 +1,48 @@
+{
+  "configurations": [
+    {
+      "name": "Generic",
+      "configurationProvider": "ms-vscode.cmake-tools",
+      "defines": [
+        "_RA_CORE=CM33",
+        "_RA_ORDINAL=1",
+        "_RENESAS_RA_"
+      ],
+      "intelliSenseMode": "gcc-arm",
+      "compilerPath": "${env:ARM_GCC_TOOLCHAIN_PATH}/arm-none-eabi-gcc",
+      "compilerArgs": [
+        "-mfloat-abi=hard",
+        "-mcpu=cortex-m33",
+        "-mfpu=fpv5-sp-d16",
+        "-mthumb"
+      ],
+      "includePath": [
+        "${workspaceFolder}/ra/arm/CMSIS_6/CMSIS/Core/Include",
+        "${workspaceFolder}/ra/fsp/inc",
+        "${workspaceFolder}/ra/fsp/inc/api",
+        "${workspaceFolder}/ra/fsp/inc/instances",
+        "${workspaceFolder}/ra_cfg/fsp_cfg",
+        "${workspaceFolder}/ra_cfg/fsp_cfg/bsp",
+        "${workspaceFolder}/ra_gen",
+        "${workspaceFolder}/src",
+        "${workspaceFolder}",
+        "${workspaceFolder}/build/Debug"
+      ],
+      "browse": {
+        "path": [
+          "${workspaceFolder}/ra/arm/CMSIS_6/CMSIS/Core/Include",
+          "${workspaceFolder}/ra/fsp/inc",
+          "${workspaceFolder}/ra/fsp/inc/api",
+          "${workspaceFolder}/ra/fsp/inc/instances",
+          "${workspaceFolder}/ra_cfg/fsp_cfg",
+          "${workspaceFolder}/ra_cfg/fsp_cfg/bsp",
+          "${workspaceFolder}/ra_gen",
+          "${workspaceFolder}/src",
+          "${workspaceFolder}"
+        ],
+        "limitSymbolsToIncludedHeaders": true
+      }
+    }
+  ],
+  "version": 4
+}
